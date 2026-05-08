@@ -1,0 +1,444 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Man Portfolio</title>
+
+  <style>
+	
+  .profile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+  }
+
+
+	
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:black;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:100%;
+      min-height:100vh;
+      background: linear-gradient(to bottom, #000000 70%, #300000);
+      position:relative;
+      overflow:hidden;
+    }
+
+    nav{
+      width:100%;
+      padding:35px 100px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:80px;
+      position:relative;
+      z-index:10;
+    }
+
+    nav button{
+      background:none;
+      border:none;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+      transition:0.3s;
+      letter-spacing:1px;
+    }
+
+    nav button:hover{
+      color:red;
+      text-shadow:0 0 10px red;
+      transform:scale(1.1);
+    }
+
+    .active{
+      color:red;
+      text-shadow:0 0 10px red;
+    }
+
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:40px 120px;
+      position:relative;
+      min-height:85vh;
+    }
+
+    .left{
+      width:55%;
+      z-index:5;
+    }
+
+    .left h1{
+      font-size:150px;
+      color:#cfcfcf;
+      line-height:120px;
+      font-weight:900;
+      text-shadow:0 0 25px rgba(255,255,255,0.4);
+    }
+
+    .left h2{
+      font-size:90px;
+      color:#8b0000;
+      margin-top:-10px;
+      font-weight:900;
+      text-shadow:0 0 20px rgba(255,0,0,0.5);
+    }
+
+    .left p{
+      width:85%;
+      margin-top:20px;
+      font-size:24px;
+      color:#9f9f9f;
+      line-height:1.6;
+    }
+
+    .buttons{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+    }
+
+    .btn1,
+    .btn2{
+      padding:18px 45px;
+      font-size:28px;
+      cursor:pointer;
+      transition:0.3s;
+      letter-spacing:6px;
+    }
+
+    .btn1{
+      background:transparent;
+      border:3px solid red;
+      color:white;
+    }
+
+    .btn1:hover{
+      background:red;
+      transform:scale(1.05);
+    }
+
+    .btn2{
+      background:red;
+      border:none;
+      color:white;
+    }
+
+    .btn2:hover{
+      background:white;
+      color:red;
+      transform:scale(1.05);
+    }
+
+    .right{
+      width:45%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .spiderman{
+      width:650px;
+      animation:swing 3s infinite ease-in-out;
+      filter:drop-shadow(0 0 20px red);
+    }
+
+    .web-line{
+      position:absolute;
+      top:-100px;
+      width:5px;
+      height:350px;
+      background:white;
+      left:50%;
+      transform:translateX(-50%);
+      box-shadow:0 0 10px white;
+    }
+
+    @keyframes swing{
+      0%{
+        transform:rotate(-5deg);
+      }
+
+      50%{
+        transform:rotate(5deg);
+      }
+
+      100%{
+        transform:rotate(-5deg);
+      }
+    }
+
+    .section{
+      display:none;
+      padding:100px;
+      text-align:center;
+      background:#090909;
+    }
+
+    .section h2{
+      font-size:60px;
+      color:red;
+      margin-bottom:20px;
+    }
+
+    .section p{
+      font-size:24px;
+      color:#ccc;
+      line-height:1.7;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .card{
+      background:#141414;
+      padding:30px;
+      border-radius:20px;
+      border:2px solid red;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 20px red;
+    }
+
+    .card h3{
+      color:red;
+      margin-bottom:15px;
+      font-size:30px;
+    }
+
+    .card button{
+      margin-top:20px;
+      padding:12px 25px;
+      background:red;
+      border:none;
+      color:white;
+      cursor:pointer;
+      border-radius:10px;
+      transition:0.3s;
+    }
+
+    .card button:hover{
+      background:white;
+      color:red;
+    }
+
+    .arrow{
+      position:absolute;
+      bottom:40px;
+      left:150px;
+      font-size:80px;
+      color:white;
+      animation:updown 1s infinite;
+    }
+
+    @keyframes updown{
+      0%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(10px);
+      }
+
+      100%{
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:1200px){
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .left{
+        width:100%;
+      }
+
+      .left p{
+        width:100%;
+      }
+
+      .right{
+        width:100%;
+        margin-top:40px;
+      }
+
+      .left h1{
+        font-size:90px;
+        line-height:90px;
+      }
+
+      .left h2{
+        font-size:60px;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        gap:30px;
+      }
+
+      .spiderman{
+        width:400px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+
+
+	
+  <button class="active" onclick="showSection('home')">HOME</button>
+  <button onclick="showSection('project')">PROJECT</button>
+  <button onclick="showSection('skills')">SKILLS</button>
+  <button onclick="showSection('about')">ABOUT ME</button>
+  
+
+</nav>
+
+    <div class="hero" id="home"> 
+	<div class="left"> 
+	<h1>MANZANO</h1> 
+	<h2>EFRAIM</h2> 
+<p> Hi! I’m Efraim Manzano, a passionate and creative individual who enjoys exploring design, creativity, and self-improvement. I love expressing ideas through different forms of art and digital projects, especially when it comes to making visually appealing works. I am always willing to learn new skills, improve my abilities, and challenge myself to grow both personally and professionally.
+ </p> <div class="buttons"> 
+<button class="btn2" onclick="alert('Welcome to the Spider-Verse!')">MORE</button> 
+</div> 
+
+</div> 
+
+<div class="right"> <div class="web-line">
+</div> <img class="spiderman" src="https://i.pinimg.com/control1/1200x/ed/14/ea/ed14ea822462d93c926056fcfd9db4c5.jpg"> 
+
+</div>
+
+    </div>
+  </div>
+
+ 
+    
+    
+
+
+  <section class="section" id="project">
+  <h2>Project</h2>
+
+  <div class="projects">
+    
+
+    <div class="card" onclick="openGallery('comic')">
+      <h3>Superhuman strength</h3>
+	<img src="https://lh3.googleusercontent.com/drive-storage/AJQWtBOekS_QlPcqG6myqS7GUEdA2cHmUq_D1CHeP8e6RH5mSrGAa_EBObCBO7VxG_y-hRt-xj64jSR8JovM4JcfT_3wdcrEKpGjs2rga6AiYbZntTXbxw=w1365-h640?auditContext=forDisplay" alt="My Picture">
+     
+    </div>
+
+    <div class="card" onclick="openGallery('spider')">
+      <h3>Spider-Sense</h3>
+	<img src="https://lh3.googleusercontent.com/drive-storage/AJQWtBOETDCF24093HJk_XZ029Bb_PPfw0x0ZzURgz4Qp_d3SVCU618CvhrsYpwbOEoRXORU3PJT4a5lvYObWB3ucpQJ_kZUrc9Awe1rBzDPhKAwSXuIGQ=w1365-h640?auditContext=forDisplay" alt="My Picture">
+     
+    </div>
+
+    <div class="card" onclick="openGallery('action')">
+      <h3>Super agility</h3>
+	<img src="https://lh3.googleusercontent.com/drive-storage/AJQWtBMzHIwf-e2FYNu5znNa-PvT1DMvH3HtBKAUdkIjh4wbASHGb0fLkkZtDy-mwvFKPgN-XlG-ZcH03iyrOPGikKENgyenWyKJyXRyJ1HOlflf9OtRQg=w1365-h640?auditContext=forDisplay" alt="My Picture">
+      
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY POPUP -->
+<div id="popup" class="popup" onclick="closeGallery()">
+  <div class="gallery-box">
+
+    <img id="img1">
+    <img id="img2">
+    <img id="img3">
+
+  </div>
+</div>
+</div>
+  </section>
+
+  <section class="section" id="skills">
+    <h2> Skills</h2>
+
+    <p>
+     	Graphic design, Poster / flyer making, Short video editing, Drawing / digital art
+	Basic HTML & CSS, Canva, File management and organization, Basic JavaScript
+    </p>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+
+    <p>
+      My name is Efraim Manzano and currently 1st year in Global Reciprocal College
+       and i'm from manila city and i love to play baseball
+	and also i love playing instruments, and i love watching spiderman and I love buying things related to Spiderman.
+	 so if you want to know me more just call me.	
+    </p>
+  </section>
+
+  <script>
+
+    function showSection(sectionId){
+
+      const sections = document.querySelectorAll('.section');
+
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      if(sectionId !== 'home'){
+        document.getElementById(sectionId).style.display = 'block';
+
+        window.scrollTo({
+          top: document.getElementById(sectionId).offsetTop,
+          behavior: 'smooth'
+        });
+      }
+
+      const buttons = document.querySelectorAll('nav button');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      event.target.classList.add('active');
+    }
+
+  </script>
+
+
+
+
+</body></html>
